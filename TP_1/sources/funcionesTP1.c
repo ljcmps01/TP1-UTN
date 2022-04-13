@@ -27,3 +27,22 @@ int menuPrincipal(){
 
 	return entrada;
 }
+
+int pedirKM(){
+	int km=0;
+	int entradaValida=0;
+
+	do{
+		printf("Cargar km de vuelo: ");
+		fflush(stdin);
+		entradaValida=scanf("%d",&km);
+	}while(!entradaValida);
+	system("cls");
+	if(km<=0){
+		printf("entrada invalida, por favor ingresar un numero mayor que 0");
+		system("pause");
+		return pedirKM();
+	}
+	system("pause");
+	return km;
+}
