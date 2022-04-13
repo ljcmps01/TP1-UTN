@@ -18,9 +18,17 @@ int main(void){
 
 	int input;
 
-	int km;
-	float precioAerolineas;
-	float precioLatam;
+	//Variables base
+	int km=0;
+	float precioAerolineas=0,
+		  precioLatam=0;
+
+	//Variables de calculo
+	float precioDebitoAerolineas=0,
+		  precioCreditoAerolineas=0,
+		  precioBTC=0,
+		  precioUnitario=0,
+		  difDePrecio=0;
 
 
 	do{
