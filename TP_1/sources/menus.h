@@ -5,17 +5,14 @@
  *      Author: Administrador
  */
 
-#ifndef FUNCIONESTP1_H_
-#define FUNCIONESTP1_H_
+#ifndef MENUS_H_
+#define MENUS_H_
 
 /// @brief
 /// Imprime el menu principal y pide al usuario ingresar la opcion
 /// @return Devuelve el valor ingresado, si no es valido devuelve 0
-int menuPrincipal();
+int menuPrincipal(int km, float aerolineas,float latam);
 
-/// @brief
-/// Pide al usuario la cantidad de KM de vuelo
-/// @return retorna un ingreso valido
-int pedirKM();
+int subMenuIngresarPrecios(float precioAerolineas,float precioLatam);
 
 #endif /* FUNCIONESTP1_H_ */
