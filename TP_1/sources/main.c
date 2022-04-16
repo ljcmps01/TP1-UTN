@@ -13,6 +13,9 @@
 #include "calculos.h"
 
 #define BTC 200
+#define INTERESCREDITO 25
+#define DESCUENTODEBITO 10
+
 
 int main(void){
 	setbuf(stdout,NULL);
@@ -24,7 +27,7 @@ int main(void){
 
 	//int inputMenuPrincipal;
 	//int inputSubMenuPrecios;
-
+	int entrada=0;
 
 	int flagKM=0;
 	int flagPrecioAerolineas=0;
@@ -50,10 +53,10 @@ int main(void){
 
 
 	do{
-		//inputMenuPrincipal=menuPrincipal();
-		switch(menuPrincipal(km,precioAerolineas,precioLatam)){
+		switch(menuPrincipal(km,precioAerolineas,precioLatam,entrada)){
 
 			case 1:
+				entrada=0;
 				km=validarInt("Ingresar KMs: ",0);
 				printf("Se ingreso %d\n",km);
 				flagKM=1;
@@ -62,7 +65,7 @@ int main(void){
 			break;
 
 			case 2:
-				//inputSubMenuPrecios=subMenuIngresarPrecios(precioAerolineas,precioLatam);
+				entrada=0;
 				do{
 					switch(subMenuIngresarPrecios(precioAerolineas,precioLatam)){
 						case 1:
@@ -108,6 +111,7 @@ int main(void){
 				 *
 				 * int flagDatosCalculados=funcion calcularCotizacion();
 				 */
+				entrada=0;
 				if(!flagKM){
 					printf("Ingrese los kilometros antes de calcular la cotizacion por favor\n");
 					system("pause");
@@ -128,19 +132,24 @@ int main(void){
 					break;
 				}
 
-				precioDebitoAerolineas=interes(precioAerolineas,10,0);
-				precioCreditoAerolineas=interes(precioAerolineas, 25, 1);
+				precioDebitoAerolineas=interes(precioAerolineas,DESCUENTODEBITO,0);
+				precioCreditoAerolineas=interes(precioAerolineas, INTERESCREDITO, 1);
 				precioBTCAerolineas=relacion(precioAerolineas, BTC);
 				precioUnitarioAerolineas=relacion(precioAerolineas, km);
 
-				precioDebitoLatam=interes(precioLatam,10,0);
-				precioCreditoLatam=interes(precioLatam, 25, 1);
+				precioDebitoLatam=interes(precioLatam,DESCUENTODEBITO,0);
+				precioCreditoLatam=interes(precioLatam, INTERESCREDITO, 1);
 				precioBTCLatam=relacion(precioLatam, BTC);
 				precioUnitarioLatam=relacion(precioLatam, km);
 
-				difDePrecio=precioLatam-precioAerolineas;
+				if(precioLatam>precioAerolineas){
+					difDePrecio=precioLatam-precioAerolineas;
+				}
+				else{
+					difDePrecio=precioAerolineas-precioLatam;
+				}
 				flagCotizacion=1;
-				printf("Costos calculados\n");
+				printf("\nCostos calculados\n");
 				system("pause");
 				system("cls");
 			break;
@@ -152,6 +161,8 @@ int main(void){
 				 *  Caso contrario, precio si se desea mostrar los datos parciales
 				 *
 				 */
+				system("cls");
+				entrada=0;
 				if(flagCotizacion){
 					printf("KMs Ingresados: %d km \n\n",km);
 
@@ -179,15 +190,40 @@ int main(void){
 			break;
 
 			case 5:
-				printf("Carga forzada\n");
+				km=7090;
+				precioAerolineas=162965;
+				precioLatam=159339;
+
+				precioDebitoAerolineas=interes(precioAerolineas,DESCUENTODEBITO,0);
+				precioCreditoAerolineas=interes(precioAerolineas, INTERESCREDITO, 1);
+				precioBTCAerolineas=relacion(precioAerolineas, BTC);
+				precioUnitarioAerolineas=relacion(precioAerolineas, km);
+
+				precioDebitoLatam=interes(precioLatam,DESCUENTODEBITO,0);
+				precioCreditoLatam=interes(precioLatam, INTERESCREDITO, 1);
+				precioBTCLatam=relacion(precioLatam, BTC);
+				precioUnitarioLatam=relacion(precioLatam, km);
+
+				if(precioLatam>precioAerolineas){
+					difDePrecio=precioLatam-precioAerolineas;
+				}
+				else{
+					difDePrecio=precioAerolineas-precioLatam;
+				}
+				flagCotizacion=1;
+
+				entrada=4;
 			break;
 
 			case 6:
-				printf("FIN DEL PROGRAMA");
+				entrada=0;
+				printf("FIN DEL PROGRAMA\n");
 				salida=1;
+				system("pause");
 			break;
 
 			default:
+				entrada=0;
 				printf("Entrada no valida, ingrese un numero entre 1 y 6\n");
 				system("pause");
 				system("cls");

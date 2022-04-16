@@ -11,7 +11,7 @@
 /// @brief
 /// Imprime el menu principal y pide al usuario ingresar la opcion
 /// @return Devuelve el valor ingresado, si no es valido devuelve 0
-int menuPrincipal(int km, float aerolineas,float latam);
+int menuPrincipal(int km, float aerolineas,float latam, int entradaForzada);
 
 int subMenuIngresarPrecios(float precioAerolineas,float precioLatam);
 

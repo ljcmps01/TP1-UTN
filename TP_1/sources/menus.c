@@ -8,7 +8,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int menuPrincipal(int km, float aerolineas,float latam){
+int menuPrincipal(int km, float aerolineas,float latam, int entradaForzada){
+	if(entradaForzada){
+		return entradaForzada;
+	}
+
 	int entrada=0;
 	int esEntero=0;
 	printf("1. Ingresar Kilometros: (km=%d)\n",km);
