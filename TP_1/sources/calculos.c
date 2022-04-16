@@ -19,4 +19,13 @@ float relacion(float numerador, float denominador){
 	return 0;
 }
 
+float diferencia(float a,float b){
+	if(a>b){
+		return a-b;
+	}
+	else{
+		return b-a;
+	}
+}
+
 

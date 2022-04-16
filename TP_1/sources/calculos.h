@@ -30,4 +30,13 @@ float porcentual(float valor,float porcentaje);
 /// 	Devuelve el valor de la relacion en float
 float relacion(float numerador, float denominador);
 
+/// @brief
+/// 	Calculo la diferencia entre 2 variables en
+/// 	funcion de cual es la variable mayor
+/// @param a	primer valor
+/// @param b	segundo valor
+/// @return
+/// 	Retorna la diferencia positiva o nula
+float diferencia(float a,float b);
+
 #endif /* CALCULOS_H_ */
