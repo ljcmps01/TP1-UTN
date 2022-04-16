@@ -3,6 +3,8 @@
  *
  *  Created on: 10 abr. 2022
  *      Author: Campos Alejo
+ *      Github Repo: github.com/ljcmps01/tp_laboratorio_1/tree/master/TP_1
+ *
  */
 
 
@@ -14,7 +16,7 @@
 
 #define BTC 200
 #define INTERESCREDITO 25
-#define DESCUENTODEBITO 10
+#define DESCUENTODEBITO -10
 
 
 int main(void){
@@ -132,13 +134,13 @@ int main(void){
 					break;
 				}
 
-				precioDebitoAerolineas=interes(precioAerolineas,DESCUENTODEBITO,0);
-				precioCreditoAerolineas=interes(precioAerolineas, INTERESCREDITO, 1);
+				precioDebitoAerolineas=porcentual(precioAerolineas,DESCUENTODEBITO);
+				precioCreditoAerolineas=porcentual(precioAerolineas, INTERESCREDITO);
 				precioBTCAerolineas=relacion(precioAerolineas, BTC);
 				precioUnitarioAerolineas=relacion(precioAerolineas, km);
 
-				precioDebitoLatam=interes(precioLatam,DESCUENTODEBITO,0);
-				precioCreditoLatam=interes(precioLatam, INTERESCREDITO, 1);
+				precioDebitoLatam=porcentual(precioLatam,DESCUENTODEBITO);
+				precioCreditoLatam=porcentual(precioLatam, INTERESCREDITO);
 				precioBTCLatam=relacion(precioLatam, BTC);
 				precioUnitarioLatam=relacion(precioLatam, km);
 
@@ -194,13 +196,13 @@ int main(void){
 				precioAerolineas=162965;
 				precioLatam=159339;
 
-				precioDebitoAerolineas=interes(precioAerolineas,DESCUENTODEBITO,0);
-				precioCreditoAerolineas=interes(precioAerolineas, INTERESCREDITO, 1);
+				precioDebitoAerolineas=porcentual(precioAerolineas,DESCUENTODEBITO);
+				precioCreditoAerolineas=porcentual(precioAerolineas, INTERESCREDITO);
 				precioBTCAerolineas=relacion(precioAerolineas, BTC);
 				precioUnitarioAerolineas=relacion(precioAerolineas, km);
 
-				precioDebitoLatam=interes(precioLatam,DESCUENTODEBITO,0);
-				precioCreditoLatam=interes(precioLatam, INTERESCREDITO, 1);
+				precioDebitoLatam=porcentual(precioLatam,DESCUENTODEBITO);
+				precioCreditoLatam=porcentual(precioLatam, INTERESCREDITO);
 				precioBTCLatam=relacion(precioLatam, BTC);
 				precioUnitarioLatam=relacion(precioLatam, km);
 

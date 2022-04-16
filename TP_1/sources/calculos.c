@@ -7,13 +7,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-float interes(float valor,float porcentaje ,int suba){
-	if(suba){
-		return valor*(1+porcentaje/100);
-	}
-	else{
-		return valor*(1-porcentaje/100);
-	}
+float porcentual(float valor,float porcentaje){
+	return valor*(1+porcentaje/100);
 }
 
 
