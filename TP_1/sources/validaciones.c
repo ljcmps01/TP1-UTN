@@ -18,21 +18,20 @@ float validarFloat(char *mensaje, int tomarNegativos){
 		fflush(stdin);
 		entradaValida=scanf("%f",&input);
 	}while(!entradaValida);
-	system("cls");
 
 	if(!tomarNegativos){
 		if(input<=0){
-			printf("entrada invalida, por favor ingresar un numero mayor que 0");
+			printf("entrada invalida, por favor ingresar un numero mayor que 0...\n");
 			system("pause");
 			return validarFloat(mensaje, tomarNegativos);
 		}
 	}
-	system("pause");
 	return input;
 
 }
 
 int validarInt(char *mensaje, int tomarNegativos){
+	system("cls");
 	int entradaValida=1;
 	int input=0;
 
@@ -41,15 +40,13 @@ int validarInt(char *mensaje, int tomarNegativos){
 		fflush(stdin);
 		entradaValida=scanf("%d",&input);
 	}while(!entradaValida);
-	system("cls");
 
 	if(!tomarNegativos){
 		if(input<=0){
-			printf("entrada invalida, por favor ingresar un numero mayor que 0");
+			printf("entrada invalida, por favor ingresar un numero mayor que 0...\n");
 			system("pause");
 			return validarInt(mensaje, tomarNegativos);
 		}
 	}
-	system("pause");
 	return input;
 }
