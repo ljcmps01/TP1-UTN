@@ -28,18 +28,8 @@ int menuPrincipal();
 
 
 int main(void) {
-	casa miCasa;
-	miCasa.ambientes=5;
-	miCasa.precio=10000000.12;
-	miCasa.calle="ministro french";
-	miCasa.numeroDeCasa=3376;
 
-	printf("---------------\n");
-	printf("Mi casa:\n");
-	printf("Queda en %s %d\n",miCasa.calle, miCasa.numeroDeCasa);
-	printf("tiene %d ambientes\n",miCasa.ambientes);
-	printf("vale: $%f \n",miCasa.precio);
-
+	menuPrincipal();
 	return EXIT_SUCCESS;
 }
 
@@ -59,4 +49,5 @@ int menuPrincipal(){
 	printf("\n");
 	printf("\n");
 	printf("\n");
+	return 0;
 }
